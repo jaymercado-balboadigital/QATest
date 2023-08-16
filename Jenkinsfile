@@ -12,13 +12,13 @@ pipeline {
             steps {
                 script {
                     // Check if the backend process is already running
-                    def isBackendRunning = sh(script: "pm2 list | grep 'backend' | grep -q 'online'", returnStatus: true)
+                    def isBackendRunning = sh(script: "pm2 list | grep 'QATest' | grep -q 'online'", returnStatus: true)
                     if (isBackendRunning == 0) {
                         // Restart the backend process
-                        sh "pm2 restart backend"
+                        sh "pm2 restart QATest"
                     } else {
                         // Start the backend process if it's not running
-                        sh "pm2 start --name backend npm -- start"
+                        sh "pm2 start --name QATest npm -- start"
                     }
                 }
             }
