@@ -8,8 +8,6 @@ require('dotenv').config()
 const app = express();
 app.use(cors());
 
-console.log('test')
-
 app.get('/tasks', (req, res) => {
     res.send([
         { description: 'Build IVR tool', assignee: 'Jay' },
